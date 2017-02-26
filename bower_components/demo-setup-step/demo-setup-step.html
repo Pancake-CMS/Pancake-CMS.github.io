@@ -1,0 +1,52 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../content-editor/content-editor.html">
+
+<dom-module id="demo-setup-step">
+    <template>
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Caveat|Pompiere" rel="stylesheet">
+        <style>
+            :host {
+                margin: 0;
+                padding: 50px;
+                display: block;
+                font-family: 'Pompiere', cursive;
+            }
+            img {
+                width: 100%;
+            }
+            p {
+                font-family: 'Pompiere', cursive;
+                font-size: 20px;
+            }
+        </style>
+        <img src$="[[src]]" alt$="[[alt]]" is-content="attr" content-id="image-url" content-attr="src, alt">
+        <div is-content="wsywig" content-id="image-info">
+            <p>Setup Information</p>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'demo-setup-step',
+            properties: {
+                src: {
+                    type: String,
+                    value: '',
+                    notify: true
+                },
+                alt: {
+                    type: String,
+                    value: '',
+                    notify: true
+                },
+                usercontent: {
+                    type: Object,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+            behaviors: [
+                ContentEditorBehavior
+            ],
+        });
+    </script>
+</dom-module>

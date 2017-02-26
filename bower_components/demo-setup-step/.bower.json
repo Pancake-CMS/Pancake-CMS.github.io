@@ -1,0 +1,31 @@
+{
+  "name": "demo-setup-step",
+  "homepage": "https://github.com/Pancake-CMS/demo-setup-step",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-setup-step.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "content-editor": "pancake-cms-content-editor#*"
+  },
+  "_release": "36cc8f971b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "36cc8f971b01715138880eaeec0c6127ee649955"
+  },
+  "_source": "https://github.com/Pancake-CMS/demo-setup-step.git",
+  "_target": "*",
+  "_originalSource": "pancake-cms-demo-setup-step",
+  "_direct": true
+}

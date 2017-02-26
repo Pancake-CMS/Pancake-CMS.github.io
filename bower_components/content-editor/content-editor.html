@@ -1,0 +1,185 @@
+<script>
+    ContentEditorBehavior = {
+        properties: {
+            inContentMode: {
+                type: Boolean,
+                value: false,
+                notify: true
+            },
+
+            parentId: {
+                type: String,
+                notify: true
+            },
+
+            path: {
+                type: String,
+                value: '',
+                notify: true
+            },
+
+            usercontent: {
+                type: Object,
+                notify: true,
+                reflectToAttribute: false,
+                observer: '_usercontentChanged'
+            }
+        },
+
+        ready: function() {
+            this._updateContent();
+        },
+
+        /*
+         *  This add the already available content to the html of the divs
+         */
+        _addContentToHTML: function(contentId) {
+            if(!!this.usercontent && !!this.usercontent[contentId]) {
+                this.$$('[content-id='+ contentId +']').innerHTML = this.usercontent[contentId];
+            }
+        },
+
+        _handleEmptyUserContent: function(contentId, contentAttributes) {
+            this.usercontent = this.usercontent || {};
+            this.usercontent[contentId] = this.usercontent[contentId] || {};
+
+            var attributes = contentAttributes.split(','),
+                obj = {};
+            for(var i=0; i< attributes.length; i++) {
+                attributes[i] = attributes[i].trim();
+                obj[attributes[i]] = this.usercontent[contentId][attributes[i]] || attributes[i];
+            }
+
+
+            this.set('usercontent.' + contentId, obj);
+        },
+
+        // Updates attributes to use values from usercontent
+        _addContentToAttr: function(contentId, contentAttributes) {
+            if(!this.usercontent || !this.usercontent[contentId]) {
+                return;
+            }
+
+            var attributes = contentAttributes.split(',');
+            for(var i=0; i< attributes.length; i++) {
+                attributes[i] = attributes[i].trim();
+                if(!!this.usercontent[contentId][attributes[i]]) {
+                    this.set(attributes[i], this.usercontent[contentId][attributes[i]]);
+                }
+            }
+
+        },
+
+        _usercontentChanged: function() {
+            this._updateContent();
+        },
+
+        // Add click event to attributes that can be changed via usercontent
+        _addAttributeEditorToElement: function(selector, contentId, contentAttributes) {
+            let attributeEditor = this.create('attribute-editor',{
+                usercontent: this.usercontent[contentId],
+                path: this.path,
+                contentId: contentId
+            });
+            Polymer.dom(this.root).appendChild(attributeEditor);
+            attributeEditor.addEventListener('value-changed', (e, detail) => {
+                this.set('usercontent.' + e.detail.contentId, e.detail.usercontent);
+                this._addContentToAttr(contentId, contentAttributes);
+            });
+            this.$$(selector).addEventListener('click', () => {
+                attributeEditor.open();
+            });
+        },
+
+        _updateContent: function() {
+            var contentDivs = Polymer.dom(this.root).querySelectorAll('[is-content]');
+
+            for(var i = 0; i < contentDivs.length; i++) {
+                var selector = '[parent-id=' + this.parentId + '] [content-id=' + contentDivs[i].getAttribute('content-id') + ']',
+                    mode = contentDivs[i].getAttribute('is-content'),
+                    contentId = contentDivs[i].getAttribute('content-id'),
+                    contentAttributes = contentDivs[i].getAttribute('content-attr');
+
+                if(mode === 'attr') {
+                    this._handleEmptyUserContent(contentId, contentAttributes);
+                    this._addContentToAttr(contentId, contentAttributes);
+                } else {
+                    this._addContentToHTML(contentId);
+                }
+
+                if(this.inContentMode) {
+                    if(mode === 'attr') {
+                        this._addAttributeEditorToElement(selector, contentId, contentAttributes);
+                    } else if(mode == 'inline') {
+                        tinymce.init({
+                            selector: selector,
+                            inline: true,
+                            toolbar: 'undo redo',
+                            menubar: false,
+                            init_instance_callback: (editor) => {
+                                editor.on('save', (e) => {
+                                    this.fire('iron-signal', {
+                                        name: 'page-operation',
+                                        data: {
+                                            operation: 'save',
+                                            path: this.path,
+                                            contentnode: editor.getBody().getAttribute('content-id'),
+                                            value: editor.getContent()
+                                        }
+                                    });
+                                });
+                            }
+                        });
+                    } else if(mode == 'wsywig') {
+                        tinymce.init({
+                            selector: selector,
+                            height: 200,
+                            menubar: false,
+                            plugins: [
+                                'advlist autolink lists link image charmap print preview anchor',
+                                'searchreplace visualblocks code fullscreen',
+                                'insertdatetime media table contextmenu paste code'
+                            ],
+                            init_instance_callback: (editor) => {
+                                editor.on('save', (e) => {
+                                    this.fire('iron-signal', {
+                                        name: 'page-operation',
+                                        data: {
+                                            operation: 'save',
+                                            path: this.path,
+                                            contentnode: contentId,
+                                            value: editor.getContent()
+                                        }
+                                    });
+                                });
+                            },
+                            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+                        });
+                    } else if(mode == 'inline-more') {
+                        tinymce.init({
+                            selector: selector,
+                            theme: 'inlite',
+                            plugins: 'image table link paste contextmenu textpattern autolink',
+                            insert_toolbar: 'quickimage quicktable',
+                            selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
+                            inline: true,
+                            init_instance_callback: (editor) => {
+                                editor.on('save', (e) => {
+                                    this.fire('iron-signal', {
+                                        name: 'page-operation',
+                                        data: {
+                                            operation: 'save',
+                                            path: this.path,
+                                            contentnode: contentId,
+                                            value: editor.getContent()
+                                        }
+                                    });
+                                });
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
+</script>

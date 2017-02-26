@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="./row-adder-lite.html">
+        <link rel="import" href="bower_components/demo-text-el/demo-text-el.html">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <template is="dom-bind" id="Demo">
+                <row-adder-lite
+                    el-name$="[[elName]]"
+                    usercontent$="[[usercontent]]"
+                    component-properties$="[[componentProperties]]">
+                </row-adder-lite>
+            </template>
+        </div>
+        <script>
+            Demo.elName = 'demo-text-el';
+            Demo.componentProperties = [
+                {
+                    name: 'display',
+                    value: [
+                        {   name: 'gridColumnStart',
+                            value: 1,
+                            type: 'text',
+                            description: 'The start column location of this component'
+                        },
+                        {   name: 'gridColumnEnd',
+                            value: 1,
+                            type: 'text',
+                            description: 'The end column location of this component'
+                        },
+                        {   name: 'gridRowStart',
+                            value: 1,
+                            type: 'text',
+                            description: 'The start row location of this component'
+                        },
+                        {   name: 'gridRowEnd',
+                            value: 1,
+                            type: 'text',
+                            description: 'The end row location of this component'
+                        }
+                    ]
+                },
+                {
+                    name: 'Component Properties',
+                    value: [
+                        {
+                            name: 'productName',
+                            value: 'Some Product Name',
+                            type: 'text',
+                            description: 'The name of the product that needs to be displayed'
+                        }
+                    ]
+                }
+            ];
+            Demo.usercontent = {
+                heading : "Some Random Demo Heading LOL",
+                "usual-paragraph" : "<p>Some random wsywig field</p>"
+            }
+        </script>
+    </body>
+</html>

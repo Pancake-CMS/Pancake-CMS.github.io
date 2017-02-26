@@ -1,0 +1,32 @@
+{
+  "name": "row-adder-lite",
+  "homepage": "https://github.com/Pancake-CMS/row-adder-lite",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "A webcomponent that is used to display rows in the pancake player",
+  "main": "row-adder-lite.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0"
+  },
+  "devDependencies": {
+    "demo-text-el": "pancake-cms-demo-text-el#*"
+  },
+  "_release": "674154079e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "674154079e45040a5712402121db90a157ff9fa2"
+  },
+  "_source": "https://github.com/Pancake-CMS/row-adder-lite.git",
+  "_target": "*",
+  "_originalSource": "pancake-cms-row-adder-lite"
+}

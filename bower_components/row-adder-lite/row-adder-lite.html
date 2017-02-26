@@ -1,0 +1,111 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="row-adder-lite">
+    <style is="custom-style">
+        :host {
+            --grid-column-start: initial;
+            --grid-column-end: initial;
+            --grid-row-start: initial;
+            --grid-row-end: initial;
+
+            display: block;
+            position: relative;
+
+            grid-column-start: var(--grid-column-start);
+            grid-column-end: var(--grid-column-end);
+            grid-row-start: var(--grid-row-start);
+            grid-row-end: var(--grid-row-end);
+        }
+    </style>
+    <template>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'row-adder-lite',
+            properties: {
+                elName: {
+                    type: String,
+                    reflectToAttribute: true,
+                    notify: true,
+                    value: ''
+                },
+                componentProperties: {
+                    type: Object,
+                    reflectToAttribute: false,
+                    notify: true
+                },
+                path: {
+                    type: String,
+                    reflectToAttribute: true,
+                    notify: true
+                },
+                id: {
+                    type: String,
+                    reflectToAttribute: true,
+                    notify: true,
+                    value: ''
+                },
+                innercomponents: {
+                    type: Object,
+                    notify: true
+                },
+                usercontent: {
+                    type: Object,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+
+            ready: function() {
+                this.createUserComponent();
+                this.updateGrids();
+            },
+            updateGrids: function() {
+                // add properties to the created element
+                for(var i = 0; i < this.componentProperties.length; i++) {
+                    if(!!this.componentProperties[i] && this.componentProperties[i].name == 'display') {
+                        var data = this.componentProperties[i].value || '';
+                        for(var j = 0; j < data.length; j++) {
+                            if(!!data[j].value) {
+                                var prop = '--' + this.toPascalCase(data[j].name);
+                                this.customStyle[prop] = '' + data[j].value;
+                            }
+                        }
+                        this.updateStyles();
+                    }
+                }
+            },
+            setComponentProperties: function(el) {
+                // add properties to the created element
+                for(var i = 0; i < this.componentProperties.length; i++) {
+                    if(!!this.componentProperties[i] && this.componentProperties[i].name == 'componentProperties') {
+                        var data = this.componentProperties[i].value || '';
+                        for(var j = 0; j < data.length; j++) {
+                            el.setAttribute(this.toPascalCase(data[j].name), data[j].value);
+                        }
+                    }
+                }
+            },
+            setComponentPathProperty: function(el) {
+                el.setAttribute('path', this.path + this.elName + '/');
+            },
+            createUserComponent: function() {
+                var el = document.createElement(this.elName);
+                this.setComponentProperties(el);
+                // Setting content to user components
+                el.usercontent = this.usercontent;
+
+                this.setComponentPathProperty(el);
+                el.innercomponents = this.innercomponents;
+                el.setAttribute('path', this.path + this.id);
+                Polymer.dom(this.root).appendChild(el);
+            },
+            toPascalCase: function(s) {
+                return s.replace(/\.?([A-Z])/g, function (x,y) {
+                    return "-" + y.toLowerCase();
+                }).replace(/^_/, "");
+            }
+        });
+    </script>
+</dom-module>

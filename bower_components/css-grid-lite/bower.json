@@ -1,0 +1,24 @@
+{
+  "name": "css-grid-lite",
+  "homepage": "https://github.com/Pancake-CMS/css-grid-lite",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "A web component that is used to provide a grid container for other web component containers",
+  "main": "css-grid-lite.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer#^1.7",
+    "row-adder-lite": "pancake-cms-row-adder-lite#*"
+  },
+  "devDependencies": {
+    "demo-text-el": "pancake-cms-demo-text-el#*"
+  }
+}

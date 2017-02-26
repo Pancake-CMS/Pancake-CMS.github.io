@@ -1,0 +1,88 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../row-adder-lite/row-adder-lite.html">
+
+<dom-module id="css-grid-lite">
+    <template>
+        <style type="text/css">
+            :host {
+                background: transparent;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .display-area {
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+            }
+        </style>
+
+        <div class="display-area">
+            <template is="dom-repeat" items="[[components]]">
+                <row-adder-lite
+                    el-name$="[[item.elName]]"
+                    component-properties$="[[item.componentProperties]]"
+                    path$="[[path]]"
+                    id$="[[item.id]]"
+                    usercontent$="[[item.usercontent]]"
+                    innercomponents$="[[item.innercomponents]]"></row-adder-lite>
+            </template>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Polymer({
+            is: 'css-grid-lite',
+
+            properties: {
+
+                rawcomponents: {
+                    type: Object,
+                    reflectToAttribute: false,
+                    notify: true
+                },
+
+                /*
+                 * The list of elements
+                 */
+                components: {
+                    type: Array,
+                    value: [],
+                    reflectToAttribute: false,
+                    notify: true
+                },
+
+                /*
+                 * path contains the actual path of the template where the components are to be added
+                 */
+                path: {
+                    type: String,
+                    value: '',
+                    reflectToAttribute: true,
+                    notify: true
+                }
+            },
+
+            observers: [
+                '_updateRawComponents(rawcomponents)'
+            ],
+
+            _computeFromRawComponents: function(rawcomponents) {
+                if(!!rawcomponents) {
+                    for(var keys in rawcomponents) {
+                        rawcomponents[keys].id = keys;
+                        rawcomponents[keys].elName = rawcomponents[keys].name;
+                        rawcomponents[keys].componentProperties = rawcomponents[keys].properties;
+                        rawcomponents[keys].innercomponents = rawcomponents[keys].components || {};
+                        rawcomponents[keys].usercontent = rawcomponents[keys].usercontent;
+
+                        this.push('components', rawcomponents[keys]);
+                    }
+                }
+            },
+
+            _updateRawComponents:  function(rawcomponents) {
+                this.set('components', []);
+                this._computeFromRawComponents(rawcomponents);
+            }
+        });
+    </script>
+</dom-module>

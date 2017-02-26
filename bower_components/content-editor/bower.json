@@ -1,0 +1,17 @@
+{
+  "name": "content-editor",
+  "homepage": "https://github.com/Pancake-CMS/content-editor",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "content-editor.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

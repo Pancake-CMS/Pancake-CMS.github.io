@@ -21,11 +21,11 @@
   "devDependencies": {
     "demo-text-el": "pancake-cms-demo-text-el#*"
   },
-  "_release": "81f47d216b",
+  "_release": "dfa5e1d57e",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "81f47d216b4d0570e734d59875d628c1cee426c9"
+    "commit": "dfa5e1d57e497e85ad0c240031ce891cadfa0014"
   },
   "_source": "https://github.com/Pancake-CMS/css-grid-lite.git",
   "_target": "*",

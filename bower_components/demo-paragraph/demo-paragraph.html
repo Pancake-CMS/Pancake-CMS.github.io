@@ -1,0 +1,35 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../content-editor/content-editor.html">
+
+<dom-module id="demo-paragraph">
+    <template>
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Caveat|Pompiere" rel="stylesheet">
+        <style>
+            :host {
+                margin: 0;
+                padding: 50px;
+                display: block;
+                font-size: 30px;
+                font-family: 'Pompiere', cursive;
+            }
+        </style>
+        <div is-content="wsywig" content-id="image-info">
+            <p>Setup Information</p>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'demo-paragraph',
+            properties: {
+                usercontent: {
+                    type: Object,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+            behaviors: [
+                ContentEditorBehavior
+            ],
+        });
+    </script>
+</dom-module>

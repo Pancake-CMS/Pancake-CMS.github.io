@@ -41,40 +41,33 @@
     <script>
         Polymer({
             is: 'pancake-player',
-
             properties: {
                 templatecomponents: {
                     type: Object,
                     notify: true,
                     reflectToAttribute: false
                 },
-
                 path: {
                     type: String,
                     notify: true,
                     observer: '_pathChanged'
                 },
-
                 route: {
                     type: Object,
                     notify: true
                 },
-
                 homepage: {
                     type: String,
                     notify: true,
                     reflectToAttribute: true
                 }
             },
-
             observers: [
                 '_updatePath(route.path)'
             ],
-
             ready: function() {
                 this.set('route.path', this.homepage);
             },
-
             _pathChanged: function() {
                 if(!this.path) {
                     return;
@@ -92,16 +85,13 @@
                         } else {
                             this.set('templatecomponents', data);
                         }
-
                         this._updateCssGridLite();
                     });
                 });
             },
-
             _handleContent: function(obj1, obj2) {
                 Object.keys(obj2).forEach((key) => {
                     obj1[key]['usercontent'] = obj2[key]['usercontent'] || {};
-
                     // TODO: future work for nested nodes
                     // if(!!obj1[key]['components']) {
                     //     console.log('has inner components in ' + key);
@@ -111,14 +101,11 @@
                     //     });
                     // }
                 });
-
                 return obj1;
             },
-
             _updatePath: function(path) {
                 this.path = path;
             },
-
             _updateCssGridLite: function() {
                 Polymer.dom(this.root).removeChild(this.$$('css-grid-lite'));
                 var cssGrid = document.createElement('css-grid-lite');
@@ -126,7 +113,6 @@
                 cssGrid.rawcomponents = this.templatecomponents;
                 Polymer.dom(this.root).appendChild(cssGrid);
             },
-
             _handleRouteChange: function(e, detail) {
                 this.set('route.path', detail);
             }

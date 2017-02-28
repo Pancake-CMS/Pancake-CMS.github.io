@@ -1,0 +1,21 @@
+{
+  "name": "demo-paragraph",
+  "homepage": "https://github.com/Pancake-CMS/demo-paragraph",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-paragraph.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "content-editor": "pancake-cms-content-editor#*"
+  }
+}

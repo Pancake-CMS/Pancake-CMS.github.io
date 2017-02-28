@@ -14,11 +14,11 @@
     "test",
     "tests"
   ],
-  "_release": "eee53fcd53",
+  "_release": "ae914b49a7",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "eee53fcd53cf3c07bb75cbc85bad5957c96b2089"
+    "commit": "ae914b49a75245737400d55dbe397bec05dcbe1f"
   },
   "_source": "https://github.com/Pancake-CMS/content-editor.git",
   "_target": "*",

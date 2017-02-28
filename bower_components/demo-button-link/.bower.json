@@ -1,0 +1,32 @@
+{
+  "name": "demo-button-link",
+  "homepage": "https://github.com/Pancake-CMS/demo-button-link",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-button-link.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "content-editor": "pancake-cms-content-editor#*",
+    "paper-button": "PolymerElements/paper-button#^1.0.14"
+  },
+  "_release": "da71ed9a2e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "da71ed9a2e92c03863b97e8627b742d4ce78b871"
+  },
+  "_source": "https://github.com/Pancake-CMS/demo-button-link.git",
+  "_target": "*",
+  "_originalSource": "pancake-cms-demo-button-link",
+  "_direct": true
+}

@@ -3,9 +3,34 @@
     <head>
         <link rel="import" href="./pancake-player.html">
         <link rel="import" href="./imports.html">
+        <style>
+           html, body {
+               margin: 0;
+           }
+           @supports (display: grid) {
+               .message {
+                   display: none;
+               }
+           }
+            @supports not (display: grid) {
+               .message {
+                    padding: 10px;
+                    background: rgba(0,0,0,0.5);
+                    color: white;
+                    text-align: right;
+               }
+               .message > p {
+                   margin: 0;
+               }
+               .message > p > a {
+                   color: gainsboro
+               }
+            }
+        </style>
     </head>
     <body>
         <pancake-player homepage="/pages/en-US/index-page"></pancake-player>
+
         <!-- polyfills -->
         <script>
             (function() {
@@ -21,5 +46,6 @@
               }
             })();
         </script>
+        <!-- end - polyfills -->
     </body>
 </html>

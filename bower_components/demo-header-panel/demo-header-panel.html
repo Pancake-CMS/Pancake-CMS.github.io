@@ -1,0 +1,70 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../content-editor/content-editor.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+
+<dom-module id="demo-header-panel">
+    <template>
+        <style>
+            :host {
+                display: block;
+                background: cadetblue;
+            }
+            .parent {
+                position: relative;
+                display: block;
+                height: 70px;
+            }
+            .documentation-links {
+                position: absolute;
+                right: 5px;
+
+                --paper-input-container-input-color: white;
+                --paper-input-container-color: white;
+                --paper-dropdown-menu-icon: {
+                    color: white;
+                }
+            }
+        </style>
+        <div class="parent" is-content="attr" content-id="selected-link" content-attr="selected">
+            <paper-dropdown-menu class="documentation-links" label="Documentation">
+                <paper-listbox class="dropdown-content" on-iron-select="_handleChange" attrForSelected="value" selected$="{{selected}}" is-content="attr" content-id="selected-link" content-attr="selected">
+                    <paper-item value="/pages/en-US/index-page">Main</paper-item>
+                    <paper-item value="/pages/en-US/pancake-setup">Setup</paper-item>
+                    <paper-item value="/pages/en-US/pancake-components">Pancake Components</paper-item>
+                    <paper-item value="/pages/en-US/pancake-player">Pancake Player</paper-item>
+                    <paper-item value="/pages/en-US/pancake-concepts">Concepts and Helpers</paper-item>
+                    <paper-item value="/pages/en-US/pancake-faqs">Future Work and FAQs</paper-item>
+                </paper-listbox>
+            </paper-dropdown-menu>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'demo-header-panel',
+            properties: {
+                selected: {
+                    type: Number,
+                    value: '',
+                    notify: true
+                },
+                usercontent: {
+                    type: Object,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+            behaviors: [
+                ContentEditorBehavior
+            ],
+
+            _handleChange: function(e, detail) {
+                this.fire('iron-signal', {
+                    name: 'pancake-player-route-changed',
+                    data: e.target.selectedItem.getAttribute('value')
+                });
+            }
+        });
+    </script>
+</dom-module>

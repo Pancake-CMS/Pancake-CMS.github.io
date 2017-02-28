@@ -1,0 +1,33 @@
+{
+  "name": "demo-header-panel",
+  "homepage": "https://github.com/Pancake-CMS/demo-header-panel",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-header-panel.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "content-editor": "pancake-cms-content-editor#*",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.5.0",
+    "paper-listbox": "polymerelements/paper-listbox#^1.1.2",
+    "paper-item": "PolymerElements/paper-item#^1.2.1"
+  },
+  "_release": "3d0d432197",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3d0d432197d32a54c808dfa498841f62507985a1"
+  },
+  "_source": "https://github.com/Pancake-CMS/demo-header-panel.git",
+  "_target": "*",
+  "_originalSource": "pancake-cms-demo-header-panel"
+}

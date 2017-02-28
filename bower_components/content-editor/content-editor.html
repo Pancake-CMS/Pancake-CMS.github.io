@@ -21,15 +21,17 @@
             usercontent: {
                 type: Object,
                 notify: true,
-                reflectToAttribute: false,
-                observer: '_usercontentChanged'
+                reflectToAttribute: false
             }
         },
+
+        observers: [
+            '_usercontentChanged(usercontent)'
+        ],
 
         ready: function() {
             this._updateContent();
         },
-
         /*
          *  This add the already available content to the html of the divs
          */
@@ -71,6 +73,9 @@
         },
 
         _usercontentChanged: function() {
+            if(this.inContentMode) {
+                return;
+            }
             this._updateContent();
         },
 
@@ -85,9 +90,6 @@
             attributeEditor.addEventListener('value-changed', (e, detail) => {
                 this.set('usercontent.' + e.detail.contentId, e.detail.usercontent);
                 this._addContentToAttr(contentId, contentAttributes);
-            });
-            this.$$(selector).addEventListener('click', () => {
-                attributeEditor.open();
             });
         },
 

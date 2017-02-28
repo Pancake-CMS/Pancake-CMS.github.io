@@ -18,14 +18,13 @@
     "polymer": "^1.7.0",
     "content-editor": "pancake-cms-content-editor#*"
   },
-  "_release": "36cc8f971b",
+  "_release": "496945bf73",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "36cc8f971b01715138880eaeec0c6127ee649955"
+    "commit": "496945bf731f59e9b28da8f3d78c42ef36a5bff7"
   },
   "_source": "https://github.com/Pancake-CMS/demo-setup-step.git",
   "_target": "*",
-  "_originalSource": "pancake-cms-demo-setup-step",
-  "_direct": true
+  "_originalSource": "pancake-cms-demo-setup-step"
 }

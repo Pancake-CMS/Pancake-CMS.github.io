@@ -1,11 +1,11 @@
 {
-  "name": "demo-paragraph",
-  "homepage": "https://github.com/Pancake-CMS/demo-paragraph",
+  "name": "demo-footer",
+  "homepage": "https://github.com/Pancake-CMS/demo-footer",
   "authors": [
     "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
   ],
   "description": "",
-  "main": "demo-paragraph.html",
+  "main": "demo-footer.html",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -16,16 +16,16 @@
   ],
   "dependencies": {
     "polymer": "^1.7.0",
-    "content-editor": "pancake-cms-content-editor#*"
+    "iron-icons": "PolymerElements/iron-icons#^1.2.0"
   },
-  "_release": "1bd82afca2",
+  "_release": "854e74cc6a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "1bd82afca2bee93682f19225ad5ce3d2f6f8095c"
+    "commit": "854e74cc6afd4e392022b5f6d454738f63643036"
   },
-  "_source": "https://github.com/Pancake-CMS/demo-paragraph.git",
+  "_source": "https://github.com/Pancake-CMS/demo-footer.git",
   "_target": "*",
-  "_originalSource": "pancake-cms-demo-paragraph",
+  "_originalSource": "pancake-cms-demo-footer",
   "_direct": true
 }

@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="demo-footer">
+    <template>
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Caveat|Pompiere" rel="stylesheet">
+        <style>
+            :host {
+                margin: 50px 0 0;
+                padding: 50px;
+                display: block;
+                font-size: 30px;
+                background: black;
+                color: white;
+                font-family: 'Pompiere', cursive;
+            }
+            div {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .red {
+               color: red;
+            }
+            .purple {
+                color: purple;
+            }
+            .cadetblue {
+                color: cadetblue;
+            }
+            .yellow {
+                color: yellow;
+            }
+            .small {
+                font-size: 20px;
+            }
+            .cyan {
+                color: cyan;
+            }
+            .no-decoration {
+                text-decoration: none;
+            }
+        </style>
+        <div>
+            <p>Made with <iron-icon class="red" icon="icons:favorite"></iron-icon>, <iron-icon class="purple" icon="icons:polymer"></iron-icon>, <span class="yellow small">Firebase</span> and <span class="cadetblue small">Pancake CMS</span></p>
+            <p class="small">Want to show some love?</p>
+            <p><iframe src="https://ghbtns.com/github-btn.html?user=Pancake-CMS&repo=Pancake-CMS.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
+            </p>
+            <p class="small">Found any Issue? Feel free to report them on the <a class="cyan" href="https://github.com/Pancake-CMS/Pancake-CMS.github.io/issues">issues page</a>.</p>
+            <p class="small">Pancake-CMS is a project created by <a class="cyan no-decoration" href="https://twitter.com/prateekjadhwani">@prateekjadhwani</a></p>
+
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'demo-footer'
+        });
+    </script>
+</dom-module>

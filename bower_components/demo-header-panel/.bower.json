@@ -29,5 +29,6 @@
   },
   "_source": "https://github.com/Pancake-CMS/demo-header-panel.git",
   "_target": "*",
-  "_originalSource": "pancake-cms-demo-header-panel"
+  "_originalSource": "pancake-cms-demo-header-panel",
+  "_direct": true
 }

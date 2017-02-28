@@ -12,15 +12,17 @@
                 font-size: 30px;
                 font-family: 'Pompiere', cursive;
             }
-            img {
-                width: 100%;
+            .image-container {
+                display: block;
+                text-align: center;
             }
-            p {
-                font-family: 'Pompiere', cursive;
-                font-size: 20px;
+            img {
+                max-width: 800px;
             }
         </style>
-        <img src$="[[src]]" alt$="[[alt]]" is-content="attr" content-id="image-url" content-attr="src, alt">
+        <div class="image-container">
+            <img src$="[[src]]" alt$="[[alt]]" is-content="attr" content-id="image-url" content-attr="src, alt">
+        </div>
         <div is-content="wsywig" content-id="image-info">
             <p>Setup Information</p>
         </div>

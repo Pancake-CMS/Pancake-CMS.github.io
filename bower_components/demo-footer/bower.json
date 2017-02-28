@@ -1,0 +1,21 @@
+{
+  "name": "demo-footer",
+  "homepage": "https://github.com/Pancake-CMS/demo-footer",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-footer.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.2.0"
+  }
+}

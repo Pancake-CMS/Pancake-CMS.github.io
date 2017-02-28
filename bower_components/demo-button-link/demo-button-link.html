@@ -4,8 +4,16 @@
 
 <dom-module id="demo-button-link">
     <template>
+        <style>
+            :host {
+                padding: 0 50px;
+            }
+            paper-button {
+                background-color: cadetblue;
+            }
+        </style>
         <div class="button-link-container" is-content="attr" page-link$="[[src]]" content-id="link-url" content-attr="src">
-            <paper-button on-click="_handleClick" is-content="inline" content-id="label">text for button-link</paper-button>
+            <paper-button on-click="_handleClick" is-content="inline" content-id="label" raised>text for button-link</paper-button>
         </div>
     </template>
     <script>

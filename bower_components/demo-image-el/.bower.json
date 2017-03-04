@@ -1,0 +1,30 @@
+{
+  "name": "demo-image-el",
+  "homepage": "https://github.com/Pancake-CMS/demo-image-el",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "demo-image-el.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0"
+  },
+  "_release": "1177d2e205",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1177d2e2056ad3728fb4d8970fc2564c494e5fc8"
+  },
+  "_source": "https://github.com/Pancake-CMS/demo-image-el.git",
+  "_target": "*",
+  "_originalSource": "pancake-cms-demo-image-el",
+  "_direct": true
+}

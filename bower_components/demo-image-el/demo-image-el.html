@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!-- this is a demo element that is being rendered by row-adder element -->
+<dom-module id="demo-image-el">
+    <style>
+        :host {
+            display: block;
+            margin: 0;
+            padding: 50px;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <template>
+        <img src$="[[src]]" alt$="[[alt]]" is-content="attr" content-id="image-url" content-attr="src, alt">
+    </template>
+    <script>
+        Polymer({
+            is: 'demo-image-el',
+
+            properties: {
+                src: {
+                    type: String,
+                    value: '',
+                    reflectToAttribute: true,
+                    notify: true
+                },
+
+                alt: {
+                    type: String,
+                    value: '',
+                    notify: true
+                },
+
+                usercontent: {
+                    type: Object,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+
+            behaviors: [
+                ContentEditorBehavior
+            ],
+        });
+    </script>
+</dom-module>

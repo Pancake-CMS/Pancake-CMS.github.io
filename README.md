@@ -13,3 +13,7 @@ bower install pancake-cms-pancake-player
 2. Update the `firebase` keys in `pancake-player.html`.
 3. Update `homepage` attribute for `pancake-player` node.
 3. Run `index.html` in the browser.
+
+## Credits
+
+Pancake Logo : [Rafael Julio](https://plus.google.com/+RafaelJulio1112)
